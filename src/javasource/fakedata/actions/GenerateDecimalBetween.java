@@ -10,7 +10,6 @@
 package fakedata.actions;
 
 import java.math.BigDecimal;
-
 import com.github.javafaker.Faker;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
