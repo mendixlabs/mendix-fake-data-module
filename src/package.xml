@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.mendix.com/package/1.0/">
+  <modelerProject xmlns="http://www.mendix.com/modelerProject/1.0/">
+    <module name="FakeData" />
+    <projectFile path="project.mpr" />
+    <files>
+      <file path="userlib\commons-lang3-3.7.jar" />
+      <file path="userlib\javafaker-1.0.1.jar" />
+      <file path="userlib\snakeyaml-1.25.jar" />
+      <file path="javasource\fakedata\actions\GenerateApp.java" />
+      <file path="javasource\fakedata\actions\GenerateArtist.java" />
+      <file path="javasource\fakedata\actions\GenerateCat.java" />
+      <file path="javasource\fakedata\actions\GenerateName.java" />
+      <file path="javasource\fakedata\actions\GenerateCountry.java" />
+      <file path="javasource\fakedata\actions\GenerateCommerce.java" />
+      <file path="javasource\fakedata\actions\GenerateFakeString.java" />
+      <file path="javasource\fakedata\actions\GenerateQuote.java" />
+      <file path="javasource\fakedata\actions\GenerateRandomColorHex.java" />
+      <file path="javasource\fakedata\actions\GenerateDateBetween.java" />
+    </files>
+  </modelerProject>
+</package>
