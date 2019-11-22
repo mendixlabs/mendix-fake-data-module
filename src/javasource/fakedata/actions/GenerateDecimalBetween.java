@@ -9,34 +9,36 @@
 
 package fakedata.actions;
 
+import java.math.BigDecimal;
+
 import com.github.javafaker.Faker;
-import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import fakedata.proxies.Cat;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class GenerateCat extends CustomJavaAction<IMendixObject>
+public class GenerateDecimalBetween extends CustomJavaAction<java.math.BigDecimal>
 {
-	public GenerateCat(IContext context)
+	private java.lang.Long Min;
+	private java.lang.Long Max;
+	private java.lang.Long NumberOfDecimals;
+
+	public GenerateDecimalBetween(IContext context, java.lang.Long Min, java.lang.Long Max, java.lang.Long NumberOfDecimals)
 	{
 		super(context);
+		this.Min = Min;
+		this.Max = Max;
+		this.NumberOfDecimals = NumberOfDecimals;
 	}
 
 	@java.lang.Override
-	public IMendixObject executeAction() throws Exception
+	public java.math.BigDecimal executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		Faker faker = new Faker();
-		com.github.javafaker.Cat cat = faker.cat();
 		
-		IMendixObject object = Core.instantiate(getContext(), Cat.getType());
-		
-		object.setValue(getContext(), Cat.MemberNames.Name.toString(), cat.name());
-		object.setValue(getContext(), Cat.MemberNames.Breed.toString(), cat.breed());
-		object.setValue(getContext(), Cat.MemberNames.Registry.toString(), cat.registry());
-		
-		return object;
+		Long min = (this.Min > this.Max) ? this.Max : this.Min;
+		Long max = (this.Max < this.Min) ? this.Min : this.Max;
+		double result = faker.number().randomDouble(this.NumberOfDecimals.intValue(), min, max);
+		return BigDecimal.valueOf(result);
 		// END USER CODE
 	}
 
@@ -46,7 +48,7 @@ public class GenerateCat extends CustomJavaAction<IMendixObject>
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "GenerateCat";
+		return "GenerateDecimalBetween";
 	}
 
 	// BEGIN EXTRA CODE

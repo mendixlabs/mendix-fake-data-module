@@ -10,33 +10,31 @@
 package fakedata.actions;
 
 import com.github.javafaker.Faker;
-import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import fakedata.proxies.Cat;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class GenerateCat extends CustomJavaAction<IMendixObject>
+public class GenerateNumberBetween extends CustomJavaAction<java.lang.Long>
 {
-	public GenerateCat(IContext context)
+	private java.lang.Long Min;
+	private java.lang.Long Max;
+
+	public GenerateNumberBetween(IContext context, java.lang.Long Min, java.lang.Long Max)
 	{
 		super(context);
+		this.Min = Min;
+		this.Max = Max;
 	}
 
 	@java.lang.Override
-	public IMendixObject executeAction() throws Exception
+	public java.lang.Long executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		Faker faker = new Faker();
-		com.github.javafaker.Cat cat = faker.cat();
 		
-		IMendixObject object = Core.instantiate(getContext(), Cat.getType());
+		Long min = (this.Min > this.Max) ? this.Max : this.Min;
+		Long max = (this.Max < this.Min) ? this.Min : this.Max;
 		
-		object.setValue(getContext(), Cat.MemberNames.Name.toString(), cat.name());
-		object.setValue(getContext(), Cat.MemberNames.Breed.toString(), cat.breed());
-		object.setValue(getContext(), Cat.MemberNames.Registry.toString(), cat.registry());
-		
-		return object;
+		return faker.number().numberBetween(min, max);
 		// END USER CODE
 	}
 
@@ -46,7 +44,7 @@ public class GenerateCat extends CustomJavaAction<IMendixObject>
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "GenerateCat";
+		return "GenerateNumberBetween";
 	}
 
 	// BEGIN EXTRA CODE

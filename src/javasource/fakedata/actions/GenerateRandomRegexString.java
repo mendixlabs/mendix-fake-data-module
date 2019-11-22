@@ -9,34 +9,35 @@
 
 package fakedata.actions;
 
-import com.github.javafaker.Faker;
-import com.mendix.core.Core;
+import java.util.Locale;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import fakedata.proxies.Cat;
-import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class GenerateCat extends CustomJavaAction<IMendixObject>
+/**
+ * Use a regex for generating a string: https://github.com/mifmif/Generex
+ */
+public class GenerateRandomRegexString extends CustomJavaAction<java.lang.String>
 {
-	public GenerateCat(IContext context)
+	private java.lang.String Regex;
+
+	public GenerateRandomRegexString(IContext context, java.lang.String Regex)
 	{
 		super(context);
+		this.Regex = Regex;
 	}
 
 	@java.lang.Override
-	public IMendixObject executeAction() throws Exception
+	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Faker faker = new Faker();
-		com.github.javafaker.Cat cat = faker.cat();
+		if (this.Regex == "") {
+			return "";
+		}
 		
-		IMendixObject object = Core.instantiate(getContext(), Cat.getType());
-		
-		object.setValue(getContext(), Cat.MemberNames.Name.toString(), cat.name());
-		object.setValue(getContext(), Cat.MemberNames.Breed.toString(), cat.breed());
-		object.setValue(getContext(), Cat.MemberNames.Registry.toString(), cat.registry());
-		
-		return object;
+		FakeValuesService service = new FakeValuesService(new Locale("en-GB"), new RandomService());		
+		return service.regexify(this.Regex);
 		// END USER CODE
 	}
 
@@ -46,7 +47,7 @@ public class GenerateCat extends CustomJavaAction<IMendixObject>
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "GenerateCat";
+		return "GenerateRandomRegexString";
 	}
 
 	// BEGIN EXTRA CODE
