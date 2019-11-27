@@ -9,6 +9,7 @@
 
 package fakedata.actions;
 
+import java.util.Random;
 import com.github.javafaker.Faker;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
@@ -28,7 +29,8 @@ public class GenerateQuote extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Faker faker = new Faker();
+		Random random = new Random(this.getContext().getRequestStartTime());
+		Faker faker = new Faker(random);
 		
 		if (this.Parameter == null) {
 			return "";

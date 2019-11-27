@@ -9,29 +9,45 @@
 
 package fakedata.actions;
 
-import java.util.Random;
 import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import com.mendix.systemwideinterfaces.core.IContext;
+import java.util.Locale;
+import java.util.Random;
 import com.mendix.webui.CustomJavaAction;
 
-public class GenerateRandomColorHex extends CustomJavaAction<java.lang.String>
+public class GenerateRandomStringFromFaker extends CustomJavaAction<java.lang.String>
 {
-	private java.lang.Boolean HashSign;
+	private java.lang.String Locale;
+	private java.lang.String Expression;
 
-	public GenerateRandomColorHex(IContext context, java.lang.Boolean HashSign)
+	public GenerateRandomStringFromFaker(IContext context, java.lang.String Locale, java.lang.String Expression)
 	{
 		super(context);
-		this.HashSign = HashSign;
+		this.Locale = Locale;
+		this.Expression = Expression;
 	}
 
 	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
+		Locale locale = this.Locale != "" ? new Locale(this.Locale) : new Locale("en-US");
+		if (this.Expression == "") {
+			return "";
+		}
+		
 		Random random = new Random(this.getContext().getRequestStartTime());
 		Faker faker = new Faker(random);
+		FakeValuesService service = new FakeValuesService(locale, new RandomService(random));
 		
-		return faker.color().hex(this.HashSign).toString();
+		try {
+			return service.expression(this.Expression, faker);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "Unknown/wrong expression :: " + this.Expression;
+		}
 		// END USER CODE
 	}
 
@@ -41,7 +57,7 @@ public class GenerateRandomColorHex extends CustomJavaAction<java.lang.String>
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "GenerateRandomColorHex";
+		return "GenerateRandomStringFromFaker";
 	}
 
 	// BEGIN EXTRA CODE

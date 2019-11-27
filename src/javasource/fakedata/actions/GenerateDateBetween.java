@@ -10,6 +10,7 @@
 package fakedata.actions;
 
 import java.util.Date;
+import java.util.Random;
 import com.github.javafaker.Faker;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
@@ -30,7 +31,8 @@ public class GenerateDateBetween extends CustomJavaAction<java.util.Date>
 	public java.util.Date executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Faker faker = new Faker();
+		Random random = new Random(this.getContext().getRequestStartTime());
+		Faker faker = new Faker(random);
 		Date dateBetween = faker.date().between(this.BeginDate, this.EndDate);
 		return dateBetween;
 		// END USER CODE

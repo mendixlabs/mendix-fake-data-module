@@ -9,6 +9,7 @@
 
 package fakedata.actions;
 
+import java.util.Random;
 import com.github.javafaker.Faker;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
@@ -34,7 +35,8 @@ public class GenerateCommerce extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Faker faker = new Faker();
+		Random random = new Random(this.getContext().getRequestStartTime());
+		Faker faker = new Faker(random);
 		com.github.javafaker.Commerce commerce = faker.commerce();
 		
 		IMendixObject object = Core.instantiate(getContext(), Commerce.getType());

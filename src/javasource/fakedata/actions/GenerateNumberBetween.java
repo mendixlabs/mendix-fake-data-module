@@ -9,6 +9,7 @@
 
 package fakedata.actions;
 
+import java.util.Random;
 import com.github.javafaker.Faker;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
@@ -29,7 +30,8 @@ public class GenerateNumberBetween extends CustomJavaAction<java.lang.Long>
 	public java.lang.Long executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Faker faker = new Faker();
+		Random random = new Random(this.getContext().getRequestStartTime());
+		Faker faker = new Faker(random);
 		
 		Long min = (this.Min > this.Max) ? this.Max : this.Min;
 		Long max = (this.Max < this.Min) ? this.Min : this.Max;

@@ -14,24 +14,26 @@ import com.github.javafaker.Faker;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
-public class GenerateRandomColorHex extends CustomJavaAction<java.lang.String>
+public class GenerateNumberDigits extends CustomJavaAction<java.lang.Long>
 {
-	private java.lang.Boolean HashSign;
+	private java.lang.Long NumberOfDigits;
+	private java.lang.Boolean Strict;
 
-	public GenerateRandomColorHex(IContext context, java.lang.Boolean HashSign)
+	public GenerateNumberDigits(IContext context, java.lang.Long NumberOfDigits, java.lang.Boolean Strict)
 	{
 		super(context);
-		this.HashSign = HashSign;
+		this.NumberOfDigits = NumberOfDigits;
+		this.Strict = Strict;
 	}
 
 	@java.lang.Override
-	public java.lang.String executeAction() throws Exception
+	public java.lang.Long executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		Random random = new Random(this.getContext().getRequestStartTime());
 		Faker faker = new Faker(random);
 		
-		return faker.color().hex(this.HashSign).toString();
+		return faker.number().randomNumber(this.NumberOfDigits.intValue(), this.Strict);
 		// END USER CODE
 	}
 
@@ -41,7 +43,7 @@ public class GenerateRandomColorHex extends CustomJavaAction<java.lang.String>
 	@java.lang.Override
 	public java.lang.String toString()
 	{
-		return "GenerateRandomColorHex";
+		return "GenerateNumberDigits";
 	}
 
 	// BEGIN EXTRA CODE
