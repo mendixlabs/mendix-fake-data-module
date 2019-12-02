@@ -11,8 +11,8 @@
       <file path="javasource\fakedata\actions\GenerateRandomString.java" />
       <file path="javasource\fakedata\actions\GenerateRandomColorHex.java" />
       <file path="javasource\fakedata\actions\GenerateRandomRegexString.java" />
-      <file path="javasource\fakedata\actions\GenerateQuote.java" />
       <file path="javasource\fakedata\actions\GenerateRandomStringFromFaker.java" />
+      <file path="javasource\fakedata\actions\GenerateQuote.java" />
       <file path="javasource\fakedata\actions\GenerateDateBetween.java" />
       <file path="javasource\fakedata\actions\GenerateCat.java" />
       <file path="javasource\fakedata\actions\GenerateName.java" />
@@ -20,9 +20,9 @@
       <file path="javasource\fakedata\actions\GenerateCommerce.java" />
       <file path="javasource\fakedata\actions\GenerateCountry.java" />
       <file path="javasource\fakedata\actions\GenerateApp.java" />
+      <file path="javasource\fakedata\actions\GenerateNumberDigits.java" />
       <file path="javasource\fakedata\actions\GenerateDecimalBetween.java" />
       <file path="javasource\fakedata\actions\GenerateNumberBetween.java" />
-      <file path="javasource\fakedata\actions\GenerateNumberDigits.java" />
     </files>
   </modelerProject>
 </package>

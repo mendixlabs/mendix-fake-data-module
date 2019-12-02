@@ -29,7 +29,7 @@ public class GenerateQuote extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Random random = new Random(this.getContext().getRequestStartTime());
+		Random random = new Random();
 		Faker faker = new Faker(random);
 		
 		if (this.Parameter == null) {

@@ -17,6 +17,16 @@ import java.util.Locale;
 import java.util.Random;
 import com.mendix.webui.CustomJavaAction;
 
+/**
+ * Use the Faker random service to create your own random string using an expression. Example:
+ * 
+ * #{Name.first_name}
+ * 
+ * Please read the documentation: http://dius.github.io/java-faker/apidocs/index.html
+ * 
+ * 
+ * 
+ */
 public class GenerateRandomStringFromFaker extends CustomJavaAction<java.lang.String>
 {
 	private java.lang.String Locale;

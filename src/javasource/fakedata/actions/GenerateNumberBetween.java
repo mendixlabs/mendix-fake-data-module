@@ -30,7 +30,7 @@ public class GenerateNumberBetween extends CustomJavaAction<java.lang.Long>
 	public java.lang.Long executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Random random = new Random(this.getContext().getRequestStartTime());
+		Random random = new Random();
 		Faker faker = new Faker(random);
 		
 		Long min = (this.Min > this.Max) ? this.Max : this.Min;

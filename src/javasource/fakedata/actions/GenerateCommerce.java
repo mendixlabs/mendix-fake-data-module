@@ -35,7 +35,7 @@ public class GenerateCommerce extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Random random = new Random(this.getContext().getRequestStartTime());
+		Random random = new Random();
 		Faker faker = new Faker(random);
 		com.github.javafaker.Commerce commerce = faker.commerce();
 		

@@ -31,7 +31,7 @@ public class GenerateDateBetween extends CustomJavaAction<java.util.Date>
 	public java.util.Date executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Random random = new Random(this.getContext().getRequestStartTime());
+		Random random = new Random();
 		Faker faker = new Faker(random);
 		Date dateBetween = faker.date().between(this.BeginDate, this.EndDate);
 		return dateBetween;

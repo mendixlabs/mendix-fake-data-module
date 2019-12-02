@@ -28,7 +28,7 @@ public class GenerateRandomColorHex extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		Random random = new Random(this.getContext().getRequestStartTime());
+		Random random = new Random();
 		Faker faker = new Faker(random);
 		
 		return faker.color().hex(this.HashSign).toString();
