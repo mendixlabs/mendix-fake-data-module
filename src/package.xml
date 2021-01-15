@@ -13,6 +13,7 @@
       <file path="javasource\fakedata\actions\GenerateRandomRegexString.java" />
       <file path="javasource\fakedata\actions\GenerateRandomStringFromFaker.java" />
       <file path="javasource\fakedata\actions\GenerateQuote.java" />
+      <file path="javasource\fakedata\actions\GenerateUUID.java" />
       <file path="javasource\fakedata\actions\GenerateDateBetween.java" />
       <file path="javasource\fakedata\actions\GenerateCat.java" />
       <file path="javasource\fakedata\actions\GenerateName.java" />
