@@ -5,15 +5,15 @@
     <projectFile path="project.mpr" />
     <files>
       <file path="userlib\commons-lang3-3.7.jar" />
-      <file path="userlib\javafaker-1.0.1.jar" />
-      <file path="userlib\snakeyaml-1.25.jar" />
+      <file path="userlib\javafaker-1.0.2.jar" />
+      <file path="userlib\snakeyaml-1.30.jar" />
       <file path="javasource\fakedata\actions\GenerateFakeString.java" />
       <file path="javasource\fakedata\actions\GenerateRandomString.java" />
+      <file path="javasource\fakedata\actions\GenerateUUID.java" />
       <file path="javasource\fakedata\actions\GenerateRandomColorHex.java" />
       <file path="javasource\fakedata\actions\GenerateRandomRegexString.java" />
       <file path="javasource\fakedata\actions\GenerateRandomStringFromFaker.java" />
       <file path="javasource\fakedata\actions\GenerateQuote.java" />
-      <file path="javasource\fakedata\actions\GenerateUUID.java" />
       <file path="javasource\fakedata\actions\GenerateDateBetween.java" />
       <file path="javasource\fakedata\actions\GenerateCat.java" />
       <file path="javasource\fakedata\actions\GenerateName.java" />
@@ -24,6 +24,10 @@
       <file path="javasource\fakedata\actions\GenerateNumberDigits.java" />
       <file path="javasource\fakedata\actions\GenerateDecimalBetween.java" />
       <file path="javasource\fakedata\actions\GenerateNumberBetween.java" />
+      <file path="themesource\fakedata\native\design-properties.json" />
+      <file path="themesource\fakedata\native\main.js" />
+      <file path="themesource\fakedata\web\design-properties.json" />
+      <file path="themesource\fakedata\web\main.scss" />
     </files>
   </modelerProject>
 </package>

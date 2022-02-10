@@ -1,5 +1,5 @@
 [![Support](https://img.shields.io/badge/Support-Community%20(no%20active%20support)-orange.svg)](https://docs.mendix.com/developerportal/app-store/app-store-content-support)
-[![Studio](https://img.shields.io/badge/Studio%20version-8.0%2B-blue.svg)](https://appstore.home.mendix.com/link/modeler/)
+[![Studio](https://img.shields.io/badge/Studio%20version-9.0%2B-blue.svg)](https://appstore.home.mendix.com/link/modeler/)
 ![GitHub release](https://img.shields.io/github/release/JelteMX/mendix-fake-data-module)
 ![GitHub issues](https://img.shields.io/github/issues/JelteMX/mendix-fake-data-module)
 
@@ -50,13 +50,13 @@ Please have a look at the Domain Model in the module for all attributes that are
     - License: Apache 2.0
     - [link](https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.7)
 - SnakeYAML
-    - Version 1.25
+    - Version 1.30
     - License: Apache 2.0
-    - [link](https://mvnrepository.com/artifact/org.yaml/snakeyaml/1.25)
+    - [link](https://mvnrepository.com/artifact/org.yaml/snakeyaml/1.30)
 - JavaFaker
-    - Version 1.0.1
+    - Version 1.0.2
     - License: Apache 2.0
-    - [link](https://mvnrepository.com/artifact/com.github.javafaker/javafaker/1.0.1)
+    - [link](https://mvnrepository.com/artifact/com.github.javafaker/javafaker/1.0.2)
 
 ## Adding new Java Actions
 
